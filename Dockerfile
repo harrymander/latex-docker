@@ -19,6 +19,7 @@ COPY --from=0 /root/pplatex-build/src/pplatex /usr/bin
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -y update && apt-get -y install \
     biber \
+    inkscape \
     latexmk \
     libpcre3-dev \
     make \
