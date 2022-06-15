@@ -1,6 +1,6 @@
 # Build and install pplatex
 FROM ubuntu:20.04
-ENV DEBIAN_FRONTEND noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y install \
     build-essential \
     cmake \
@@ -16,7 +16,7 @@ RUN make -C /root/pplatex-build
 
 FROM ubuntu:20.04
 COPY --from=0 /root/pplatex-build/src/pplatex /usr/bin
-ENV DEBIAN_FRONTEND noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y install \
     biber \
     inkscape \
