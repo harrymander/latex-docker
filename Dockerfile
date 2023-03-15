@@ -1,5 +1,5 @@
 # Build and install pplatex
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y install \
     build-essential \
@@ -19,6 +19,7 @@ COPY --from=0 /root/pplatex-build/src/pplatex /usr/bin
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y install \
     biber \
+    cm-super \
     inkscape \
     latexmk \
     libpcre3-dev \
@@ -26,4 +27,5 @@ RUN apt-get -y update && apt-get -y install \
     texlive \
     texlive-bibtex-extra \
     texlive-latex-extra \
+    texlive-latex-recommended \
     texlive-science
