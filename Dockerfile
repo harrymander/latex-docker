@@ -1,5 +1,5 @@
 # Build and install pplatex
-FROM ubuntu:22.04
+FROM ubuntu:22.04 AS pplatex-build
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y install \
     build-essential \
@@ -14,8 +14,8 @@ RUN mkdir /root/pplatex-build
 RUN cmake -S /root/pplatex -B /root/pplatex-build
 RUN make -C /root/pplatex-build
 
-FROM ubuntu:20.04
-COPY --from=0 /root/pplatex-build/src/pplatex /usr/bin
+FROM ubuntu:22.04
+COPY --from=pplatex-build /root/pplatex-build/src/pplatex /usr/bin
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y install \
     biber \
