@@ -22,7 +22,7 @@ RUN apt-get -y update && apt-get -y install \
     cm-super \
     inkscape \
     latexmk \
-    libpcre3-dev \
+    libpcre3 \
     make \
     texlive \
     texlive-bibtex-extra \
