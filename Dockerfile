@@ -28,4 +28,6 @@ RUN apt-get -y update && apt-get -y install \
     texlive-bibtex-extra \
     texlive-latex-extra \
     texlive-latex-recommended \
-    texlive-science
+    texlive-science \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
