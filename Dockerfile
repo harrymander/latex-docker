@@ -11,7 +11,7 @@ RUN apt-get -y update && apt-get -y install \
 RUN git clone --depth 1 --branch pplatex-1.0-rc3 \
     https://github.com/stefanhepp/pplatex.git /root/pplatex
 RUN mkdir /root/pplatex-build
-RUN cmake -S /root/pplatex -B /root/pplatex-build
+RUN cmake -S /root/pplatex -B /root/pplatex-build -DCMAKE_BUILD_TYPE=Release
 RUN make -C /root/pplatex-build
 
 FROM ubuntu:24.04
